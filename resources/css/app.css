@@ -1,0 +1,37 @@
+/* Reset básico para corrigir problemas de caracteres */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    font-family: theme('fontFamily.sans');
+    line-height: 1.5;
+  }
+}
+
+/* Estilos do layout */
+.sidebar {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.topbar {
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding-top: 60px;
+}
