@@ -1,4 +1,8 @@
-/* Reset básico para corrigir problemas de caracteres */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset personalizado */
 @layer base {
   * {
     margin: 0;
@@ -7,31 +11,42 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
-    font-family: theme('fontFamily.sans');
-    line-height: 1.5;
+    @apply font-sans leading-relaxed;
   }
 }
 
 /* Estilos do layout */
 .sidebar {
-  width: 250px;
+  width: 200px;
+  height: 100vh;
+  background-color: #007bff;
+  color: white;
   position: fixed;
   left: 0;
   top: 0;
-  bottom: 0;
+  padding: 20px;
+  z-index: 100;
 }
 
 .topbar {
   height: 60px;
   position: fixed;
   top: 0;
-  left: 250px;
+  left: 200px;
   right: 0;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 999;
 }
 
 .main-content {
-  margin-left: 250px;
-  padding-top: 60px;
+  margin-left: 200px;
+  margin-top: 60px;
+  padding: 20px;
 }

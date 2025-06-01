@@ -12,8 +12,5 @@ module.exports = {
     },
     extend: {},
   },
-  corePlugins: {
-    preflight: false, // Desativa o reset CSS padrão do Tailwind
-  },
   plugins: [],
 }

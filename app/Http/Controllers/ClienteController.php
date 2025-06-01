@@ -30,7 +30,7 @@ class ClienteController extends Controller
 
         Cliente::create($request->all());
 
-        return redirect('/dashboard?menu=consulta')->with('success', 'Cliente cadastrado com sucesso!');
+        return redirect()->route('clientes.index')->with('success', 'Cliente cadastrado com sucesso!');
 
     }
 
