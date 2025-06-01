@@ -34,4 +34,10 @@
 
     <button type="submit">Atualizar</button>
 </form>
+<a href="{{ route('clientes.index') }}">
+    <button type="button" style="padding: 10px 20px; background: gray; color: white; border: none; margin-top: 20px;">
+        Voltar à Lista de Clientes
+    </button>
+</a>
+
 @endsection

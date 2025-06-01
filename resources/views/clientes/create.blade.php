@@ -35,7 +35,7 @@
 
 <a href="{{ route('dashboard') }}" 
    style="display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;">
-   ← Voltar para a lista
+   ← Voltar para dashboard
 </a>
 
 @endsection
