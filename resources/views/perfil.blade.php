@@ -1,39 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <title>Perfil do Usuário</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #007bff;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            margin-top: 15px;
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Perfil do Usuário</h1>
+@extends('layouts.app')
 
-        <p><strong>Usuário logado:</strong> {{ $usuario }}</p>
+@section('content')
+    <div class="max-w-xl mx-auto bg-gray-100 p-6 rounded-md shadow mt-6">
+        <h1 class="text-2xl font-bold text-blue-600 mb-4">Perfil do Usuário</h1>
 
-        <a href="{{ route('dashboard') }}">← Voltar ao Dashboard</a>
+        <p class="text-gray-800"><strong>Usuário logado:</strong> {{ $usuario }}</p>
+
+        <a href="{{ route('dashboard') }}" class="inline-block mt-4 text-blue-600 hover:underline">
+            ← Voltar ao Dashboard
+        </a>
     </div>
-</body>
-</html>
+@endsection

@@ -1,70 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Clientes</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        th { background-color: #f4f4f4; }
-    </style>
-</head>
-<body>
-    <h1>Lista de Clientes</h1>
-    @if (session('success'))
-    <div style="color: green; margin-top: 10px;">
+@extends('layouts.app')
+
+@section('content')
+<h1 class="text-2xl font-bold mb-4">Lista de Clientes</h1>
+
+@if (session('success'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded mb-4">
         {{ session('success') }}
     </div>
-    @endif
+@endif
 
-
-    @if($clientes->isEmpty())
-        <p>Nenhum cliente cadastrado.</p>
-    @else
-        <table>
-            <th>Ações</th>
+@if ($clientes->isEmpty())
+    <p class="text-gray-600">Nenhum cliente cadastrado.</p>
+@else
+    <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white shadow rounded">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Data de Criação</th>
+                <tr class="bg-gray-100 text-left">
+                    <th class="p-3 border">ID</th>
+                    <th class="p-3 border">Nome</th>
+                    <th class="p-3 border">Email</th>
+                    <th class="p-3 border">Data de Criação</th>
+                    <th class="p-3 border">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($clientes as $cliente)
-                    <tr>
-                        <td>{{ $cliente->id }}</td>
-                        <td>{{ $cliente->nome }}</td>
-                        <td>{{ $cliente->email }}</td>
-                        <td>{{ $cliente->created_at->format('d/m/Y H:i') }}</td>
+                @foreach ($clientes as $cliente)
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 border">{{ $cliente->id }}</td>
+                        <td class="p-3 border">{{ $cliente->nome }}</td>
+                        <td class="p-3 border">{{ $cliente->email }}</td>
+                        <td class="p-3 border">{{ $cliente->created_at->format('d/m/Y H:i') }}</td>
+                        <td class="p-3 border space-x-2">
+                            <a href="{{ route('clientes.edit', $cliente->id) }}" class="text-blue-600 hover:underline">Editar</a>
+                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este cliente?')" class="text-red-600 hover:underline">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
-                    <td>
-    <a href="{{ route('clientes.edit', $cliente->id) }}">Editar</a> |
-    <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST" style="display:inline;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">Excluir</button>
-    </form>
-</td>
-
                 @endforeach
             </tbody>
         </table>
-    @endif
+    </div>
+@endif
 
-    <div style="margin-top: 30px;">
-    <a href="{{ route('dashboard') }}"
-       style="display: inline-block; margin-right: 15px; padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;">
+<div class="mt-6 space-x-4">
+    <a href="{{ route('dashboard') }}" class="inline-block bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">
         ← Voltar ao Início
     </a>
-
-    <a href="{{ route('clientes.create') }}"
-       style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+    <a href="{{ route('clientes.create') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
         + Novo Cadastro
     </a>
-    </div>
-
-</body>
-</html>
+</div>
+@endsection
