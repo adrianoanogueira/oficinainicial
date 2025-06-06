@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VeiculoController;
 use Illuminate\Support\Facades\Artisan;
 
 // Rota de login (POST)
@@ -58,6 +59,8 @@ Route::get('/perfil', function () {
 
 // Rotas para clientes
 Route::resource('clientes', ClienteController::class);
+
+Route::resource('veiculos', VeiculoController::class);
 
 // Rota para limpar cache (dev)
 Route::get('/dev/clear-cache', function () {

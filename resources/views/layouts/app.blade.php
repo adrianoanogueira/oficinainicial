@@ -15,6 +15,14 @@
       <li><a href="#" class="block hover:underline">Teste 1</a></li>
       <li><a href="#" class="block hover:underline">Teste 2</a></li>
       <li>
+  <span class="block">Veículos</span>
+  <ul class="pl-4 text-sm space-y-1">
+    <li><a href="{{ route('veiculos.create') }}" class="hover:underline">Cadastro</a></li>
+    <li><a href="{{ route('veiculos.index') }}" class="hover:underline">Consulta</a></li>
+  </ul>
+</li>
+
+      <li>
         <span class="block">Clientes</span>
         <ul class="pl-4 text-sm space-y-1">
           <li><a href="{{ route('clientes.create') }}" class="hover:underline">Cadastro</a></li>
