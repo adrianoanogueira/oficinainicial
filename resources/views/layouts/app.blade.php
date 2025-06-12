@@ -12,8 +12,8 @@
   <div class="sidebar bg-blue-800 text-white fixed h-full w-52 p-4">
     <h3 class="text-xl font-bold mb-4">Menu</h3>
     <ul class="space-y-2">
-      <li><a href="#" class="block hover:underline">Teste 1</a></li>
-      <li><a href="#" class="block hover:underline">Teste 2</a></li>
+      {{--<li><a href="#" class="block hover:underline">Teste 1</a></li>--}}
+      {{--<li><a href="#" class="block hover:underline">Teste 2</a></li>--}}
       <li>
   <span class="block">Veículos</span>
   <ul class="pl-4 text-sm space-y-1">
